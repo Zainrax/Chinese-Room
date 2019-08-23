@@ -1,0 +1,19 @@
+{
+  "name": "chinese-room",
+  "version": "0.0.1",
+  "description": "Simulation of Chinese Room problem",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zainrax/Chinese-Room.git"
+  },
+  "author": "Patrick Baxter, Sean Kim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zainrax/Chinese-Room/issues"
+  },
+  "homepage": "https://github.com/Zainrax/Chinese-Room#readme"
+}
