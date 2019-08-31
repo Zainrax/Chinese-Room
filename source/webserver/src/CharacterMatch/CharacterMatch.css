@@ -1,0 +1,62 @@
+.char-match-container {
+  grid-area: match;
+  max-width: 50em;
+}
+.char-match-container > h1 {
+  font-size: 10em;
+  text-align: center;
+}
+
+.char-match-container > h2 {
+  font-size: 2em;
+  text-align: center;
+}
+
+.char-match-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.char-match-form > button {
+  padding: 1em;
+  background-color: #4daf7c;
+  font-size: 1em;
+  font-weight: 700;
+  color: white;
+  border-radius: 20px;
+}
+
+.char-match-form > button:focus {
+  outline: none;
+}
+
+.char-match-form > button::-moz-focus-inner {
+  border: 0;
+}
+
+.char-match-button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  max-width: 600px;
+}
+
+.char-match-button {
+  margin-bottom: 2em;
+}
+.char-match-button input {
+  display: none;
+}
+
+.char-match-button label {
+  font-size: 7em;
+  padding: 10px 30px 10px 30px;
+  border: solid 2px #4d4d4d;
+  border-radius: 30px;
+}
+
+.selected-char label {
+  background-color: rgb(45, 74, 238);
+  color: white;
+}

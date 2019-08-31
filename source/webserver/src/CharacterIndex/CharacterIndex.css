@@ -1,0 +1,25 @@
+.char-index-container {
+  grid-area: index;
+}
+
+.char-index-row > div {
+  display: inline-block;
+}
+
+.char-index-row {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 4em;
+}
+
+.selected-char .char-index-char {
+  color: #f03434;
+}
+
+.selected-char .char-index-submission {
+  color: #446cb3;
+}
+
+.submitted {
+  color: #4daf7c;
+}
