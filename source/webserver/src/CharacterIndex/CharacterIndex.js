@@ -7,6 +7,7 @@ function CharacterIndex({ chars, submission, index }) {
     for (let i = 0; i < chars.length; i++) {
       items.push(
         <div
+          key={chars[i]}
           className={`char-index-row${
             chars[index] === chars[i]
               ? " selected-char"
@@ -27,7 +28,7 @@ function CharacterIndex({ chars, submission, index }) {
 
   return (
     <div className="char-index-container">
-      <h1>Char Index</h1>
+      <h1 className="subtitle">Char Index</h1>
       {charIndex()}
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CharacterIndex from "../CharacterIndex";
 import CharacterMatch from "../CharacterMatch";
+import CharacterDictionary from "../CharacterDictionary";
 import "./App.css";
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
       <header>
         <h1>Chinese Room</h1>
       </header>
-      <main class="app-container">
+      <main className="app-container">
         <CharacterIndex chars={chars} submission={submission} index={index} />
         <CharacterMatch
           chars={chars}
@@ -26,6 +27,7 @@ function App() {
           setSubmission={setSubmission}
           setIndex={setIndex}
         />
+        <CharacterDictionary />
       </main>
     </div>
   );

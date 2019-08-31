@@ -38,7 +38,11 @@ function CharacterMatch({ chars, index, setIndex, submission, setSubmission }) {
 
   return (
     <div className="char-match-container">
-      <h1>{chars[index]}</h1>
+      {index < chars.length ? (
+        <h1 className="char-match-char">{chars[index]}</h1>
+      ) : (
+        <h1 className="char-match-done"> Done!</h1>
+      )}
       <h2>Match the character</h2>
       <form onSubmit={handleSubmit} className="char-match-form">
         <div className="char-match-button-container">

@@ -1,4 +1,8 @@
 .app-container {
-  display: grid;
-  grid-template-areas: "index match dictionary";
+  display: flex;
+  justify-content: center;
+}
+
+header > h1 {
+  text-align: center;
 }
