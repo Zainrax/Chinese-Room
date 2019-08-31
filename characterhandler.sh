@@ -1,4 +1,4 @@
 #!/bin/bash
 cd /src
 npm install
-node source/index.js&
+node src/index.js

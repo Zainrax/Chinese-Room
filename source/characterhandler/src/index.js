@@ -5,6 +5,22 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const mysql = require("mysql");
+
+let connection = mysql.createConnection({
+  host: "192.168.2.6",
+  user: "root",
+  password: "password",
+  database: "chineseroom"
+});
+
+connection.connect(err => {
+  if (err) {
+    return console.error("Error:" + err.message);
+  }
+
+  console.log("Connected to MySQL Server.");
+});
 
 app.use(cors());
 app.use(bodyParser.json());
