@@ -1,0 +1,36 @@
+.char-index-container {
+  padding: 1em;
+  border: solid 2px rgb(56, 56, 56);
+  height: 100%;
+  min-width: 270px;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75);
+}
+
+.subtitle {
+  text-align: center;
+  text-decoration: underline double rgb(56, 56, 56);
+  font-size: 3em;
+  margin: 0;
+}
+
+.char-index-row > div {
+  display: inline-block;
+}
+
+.char-index-row {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 4em;
+}
+
+.selected-char .char-index-char {
+  color: #f03434;
+}
+
+.selected-char .char-index-submission {
+  color: rgb(80, 80, 80);
+}
+
+.submitted {
+  color: #446cb3;
+}

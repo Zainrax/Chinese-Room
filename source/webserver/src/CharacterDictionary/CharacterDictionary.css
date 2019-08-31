@@ -1,0 +1,27 @@
+.char-dictionary-container {
+  padding: 1em;
+  border: solid 2px rgb(56, 56, 56);
+  height: 100%;
+  max-width: 270px;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75);
+}
+
+.char-dictionary-pair-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.char-dictionary-pair {
+  display: flex;
+  font-size: 2.5em;
+  padding-right: 0.3em;
+}
+
+.char-dictionary-char {
+  color: #f03434;
+}
+
+.char-dictionary-answer {
+  color: #4daf7c;
+}

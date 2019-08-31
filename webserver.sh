@@ -1,4 +1,6 @@
 #!/bin/bash
 cd /src
 npm install
-node source/index.js
+npm install -g serve
+npm run build
+serve -s build
