@@ -11,7 +11,29 @@ function App() {
 
   useEffect(() => {
     setChars(["A", "B", "C", "D"]);
+    fetch("http://localhost:3003/")
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        setChars(data.DATA);
+      })
+      .catch(console.log);
   }, []);
+
+  useEffect(() => {
+    if (submission.length === chars.length && chars.length !== 0) {
+      fetch("http://localhost:3003/", {
+        method: "POST",
+        body: JSON.stringify({ DATA: submission }),
+        headers: { "Content-Type": "application/json" }
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+        });
+    }
+  }, [index]);
 
   return (
     <div>

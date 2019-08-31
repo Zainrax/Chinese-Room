@@ -18,7 +18,7 @@ function CharacterDictionary() {
       <div className="char-dictionary-pair-container">
         {dictionary.map(pair => {
           return (
-            <div className="char-dictionary-pair">
+            <div key={pair[0]} className="char-dictionary-pair">
               <div className="char-dictionary-char">{pair[0]}</div>
               <svg
                 height="48"

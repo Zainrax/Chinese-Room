@@ -13,11 +13,11 @@ Vagrant.configure("2") do |config|
         webserver.vm.provision "shell", path: "webserver.sh", privileged: false
     end
 
-    config.vm.define "charactersender" do |sender| 
-        sender.vm.hostname = "charactersender"
+    config.vm.define "characterhandler" do |sender| 
+        sender.vm.hostname = "characterhandler"
         sender.vm.provision "shell", path: "node.sh", privileged:false 
-        sender.vm.provision "shell", path: "charactersender.sh", privileged: false
-        sender.vm.synced_folder "source/charactersender", "/src", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
+        sender.vm.provision "shell", path: "characterhandler.sh", privileged: false
+        sender.vm.synced_folder "source/characterhandler", "/src", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
     end
 
     # config.vm.define "postAgent" do |agent| 

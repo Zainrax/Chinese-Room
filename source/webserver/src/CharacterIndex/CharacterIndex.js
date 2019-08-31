@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./CharacterIndex.css";
 
 function CharacterIndex({ chars, submission, index }) {
@@ -7,9 +7,9 @@ function CharacterIndex({ chars, submission, index }) {
     for (let i = 0; i < chars.length; i++) {
       items.push(
         <div
-          key={chars[i]}
+          key={i}
           className={`char-index-row${
-            chars[index] === chars[i]
+            i === submission.length
               ? " selected-char"
               : i < submission.length
               ? " submitted"

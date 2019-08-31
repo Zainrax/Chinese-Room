@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./CharacterMatch.css";
 
 const CharButton = ({ char, setSelectedChar, selectedChar }) => {
-  const [checked, setChecked] = useState(false);
-
   const handleChange = e => {
     setSelectedChar(e.currentTarget.value);
   };
@@ -31,9 +29,11 @@ function CharacterMatch({ chars, index, setIndex, submission, setSubmission }) {
   const [selectedChar, setSelectedChar] = useState("");
   const handleSubmit = e => {
     e.preventDefault();
-    setIndex(index + 1);
-    setSubmission(submission.concat(selectedChar));
-    setSelectedChar("");
+    if (selectedChar !== "") {
+      setIndex(index + 1);
+      setSubmission(submission.concat(selectedChar));
+      setSelectedChar("");
+    }
   };
 
   return (
@@ -44,7 +44,7 @@ function CharacterMatch({ chars, index, setIndex, submission, setSubmission }) {
         <h1 className="char-match-done"> Done!</h1>
       )}
       <h2>Match the character</h2>
-      <form onSubmit={handleSubmit} className="char-match-form">
+      <form onSubmit={handleSubmit} className="char-match-form" noValidate>
         <div className="char-match-button-container">
           {Array.from({ length: 8 }, (_, i) =>
             String.fromCharCode("A".charCodeAt(0) + i)
