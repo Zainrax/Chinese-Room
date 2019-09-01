@@ -7,6 +7,7 @@ import "./App.css";
 function App() {
   const [chars, setChars] = useState([]);
   const [index, setIndex] = useState(0);
+  const [answers, setAnswers] = useState([]);
   const [submission, setSubmission] = useState([]);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ function App() {
       })
         .then(res => res.json())
         .then(data => {
-          console.log(data);
+          setAnswers(data.DATA);
         });
     }
   }, [index]);
@@ -41,7 +42,12 @@ function App() {
         <h1>Chinese Room</h1>
       </header>
       <main className="app-container">
-        <CharacterIndex chars={chars} submission={submission} index={index} />
+        <CharacterIndex
+          chars={chars}
+          submission={submission}
+          index={index}
+          answers={answers}
+        />
         <CharacterMatch
           chars={chars}
           index={index}

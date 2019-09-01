@@ -4,12 +4,11 @@ Vagrant.configure("2") do |config|
     config.vm.define "databaseserver" do |database| 
         database.vm.hostname = "databaseserver"
         
-        database.vm.network "forwarded_port", guest: 3306, host: 3306
-        database.vm.network "private_network", ip: "192.168.2.6"
+        database.vm.network "private_network", ip: "192.168.2.14"
         
         database.vm.synced_folder "source/databaseserver", "/src", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
         
-        database.vm.provision "shell", path: "databaseserver.sh", privileged: false
+        database.vm.provision "shell", path: "databaseserver.sh"
     end
 
     config.vm.define "characterhandler" do |sender| 

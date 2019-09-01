@@ -3,12 +3,12 @@ import "./CharacterDictionary.css";
 
 function CharacterDictionary() {
   const dictionary = [
-    ["A", "B"],
-    ["B", "D"],
-    ["C", "G"],
-    ["D", "D"],
-    ["E", "A"],
-    ["F", "D"],
+    ["A", "F"],
+    ["B", "C"],
+    ["C", "A"],
+    ["D", "G"],
+    ["E", "D"],
+    ["F", "B"],
     ["G", "E"],
     ["H", "C"]
   ];
