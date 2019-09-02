@@ -10,9 +10,10 @@ function App() {
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [submission, setSubmission] = useState([]);
+  const [restart, setRestart] = useState(false);
 
   const initPage = () => {
-    fetch("http://localhost:3003/")
+    fetch("http://192.168.2.7:3003/")
       .then(res => {
         return res.json();
       })
@@ -22,13 +23,20 @@ function App() {
       .catch(console.log);
   };
 
+  const resetPage = () => {
+    setAnswers([]);
+    setSubmission([]);
+    setIndex(0);
+    initPage();
+  };
+
   useEffect(() => {
     setChars(["A", "B", "C", "D"]);
   }, []);
 
   useEffect(() => {
     if (submission.length === chars.length && chars.length !== 0) {
-      fetch("http://localhost:3003/", {
+      fetch("http://192.168.2.7:3003/", {
         method: "POST",
         body: JSON.stringify({ DATA: submission }),
         headers: { "Content-Type": "application/json" }
@@ -62,6 +70,7 @@ function App() {
             chars={chars}
             submission={submission}
             answers={answers}
+            resetPage={resetPage}
           />
         )}
       </main>

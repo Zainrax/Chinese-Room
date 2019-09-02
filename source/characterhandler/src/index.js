@@ -28,6 +28,7 @@ app.get("/", async (req, res) => {
     return rows;
   }
   characters = [];
+  answers = [];
 
   main()
     .then(res =>
@@ -41,13 +42,15 @@ app.get("/", async (req, res) => {
     })
     .then(() => {
       console.log("sent...");
+      console.log("chars: " + characters);
     });
 });
 
 app.post("/", (req, res) => {
   let submission = req.body.DATA;
   let results = [];
-  console.log(answers);
+  console.log("Submission: " + submission);
+  console.log("Answers: " + answers);
   for (let i = 0; i < submission.length; i++) {
     if (submission[i] === answers[i]) {
       results.push(true);

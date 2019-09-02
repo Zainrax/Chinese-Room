@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function LandingOverlay({ initPage }) {
   const [start, setStart] = useState(false);
-  const handleSubmit = () => {
+  const handleClick = () => {
     initPage();
     setStart(true);
   };
@@ -38,7 +38,7 @@ function LandingOverlay({ initPage }) {
             character to the right output.
           </p>
         </article>
-        <button type="button" onClick={handleSubmit} className="start-button">
+        <button type="button" onClick={handleClick} className="long-button">
           Start
         </button>
       </div>

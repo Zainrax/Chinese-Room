@@ -1,7 +1,7 @@
 import React from "react";
 import "./CharacterIndex.css";
 
-function CharacterIndex({ chars, submission, index }) {
+function CharacterIndex({ chars, submission, index, answers }) {
   const charIndex = () => {
     let items = [];
     for (let i = 0; i < chars.length; i++) {
