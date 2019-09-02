@@ -18,5 +18,5 @@ No futher modification is needed, though you can change the ip in the vagrant fi
 ## Website
 The website is accessed through:
 ```
-http://192.168.2.8/:5000
+http://192.168.2.8:5000
 ```
