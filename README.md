@@ -1,7 +1,7 @@
 # Chinese-Room
 Web application simulating Searle's Chinese Room experiment through VM environments.
 
-## Description
+# Description
 This program is created using React, node.js, and MySQL in three seperate vms using vagrant.
 
 # Usage
