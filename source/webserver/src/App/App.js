@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import CharacterIndex from "../CharacterIndex";
 import CharacterMatch from "../CharacterMatch";
 import CharacterDictionary from "../CharacterDictionary";
+import { ScoreOverlay, LandingOverlay } from "../Overlay";
 import "./App.css";
 
 function App() {
@@ -10,8 +11,7 @@ function App() {
   const [answers, setAnswers] = useState([]);
   const [submission, setSubmission] = useState([]);
 
-  useEffect(() => {
-    setChars(["A", "B", "C", "D"]);
+  const initPage = () => {
     fetch("http://localhost:3003/")
       .then(res => {
         return res.json();
@@ -20,6 +20,10 @@ function App() {
         setChars(data.DATA);
       })
       .catch(console.log);
+  };
+
+  useEffect(() => {
+    setChars(["A", "B", "C", "D"]);
   }, []);
 
   useEffect(() => {
@@ -39,15 +43,10 @@ function App() {
   return (
     <div>
       <header>
-        <h1>Chinese Room</h1>
+        <h1>Chinese Room Simulation</h1>
       </header>
       <main className="app-container">
-        <CharacterIndex
-          chars={chars}
-          submission={submission}
-          index={index}
-          answers={answers}
-        />
+        <CharacterIndex chars={chars} submission={submission} index={index} />
         <CharacterMatch
           chars={chars}
           index={index}
@@ -56,6 +55,15 @@ function App() {
           setIndex={setIndex}
         />
         <CharacterDictionary />
+        {answers.length === 0 ? (
+          <LandingOverlay initPage={initPage} />
+        ) : (
+          <ScoreOverlay
+            chars={chars}
+            submission={submission}
+            answers={answers}
+          />
+        )}
       </main>
     </div>
   );
