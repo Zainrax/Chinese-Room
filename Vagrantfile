@@ -1,39 +1,45 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
 Vagrant.configure("2") do |config|
-    config.vm.box = "ubuntu/xenial64"
+  config.vm.box = "dummy"
+  config.env.enable
+  config.vm.provider :aws do |aws, override|
+    aws.access_key_id = ENV['AWS_ACCESS_KEY_ID']
+    aws.secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
+    aws.session_token = ENV['AWS_SESSION_TOKEN']
 
-    config.vm.define "databaseserver" do |database| 
-        database.vm.hostname = "databaseserver"
-        
-        database.vm.network "private_network", ip: "192.168.2.14"
-        
-        database.vm.synced_folder "source/databaseserver", "/src", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
-        
-        database.vm.provision "shell", path: "databaseserver.sh"
-    end
+    aws.region = "us-east-1"
 
-    config.vm.define "characterhandler" do |sender| 
-        sender.vm.hostname = "characterhandler"
+    override.nfs.functional = false
+    override.vm.allowed_synced_folder_types = :rsync
 
-        sender.vm.network "forwarded_port", guest: 80, host: 3003, host_ip: "127.0.0.1"
-        sender.vm.network "private_network", ip: "192.168.2.7"
-        
-        sender.vm.provision "shell", path: "node.sh", privileged:false 
-        sender.vm.provision "shell", path: "characterhandler.sh", privileged: false
-        
-        sender.vm.synced_folder "source/characterhandler", "/src", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
-    end
-    
-    config.vm.define "webserver" do |webserver|
-        webserver.vm.hostname = "webserver"
-        
-        webserver.vm.network "forwarded_port", guest: 80, host: 5000, host_ip: "127.0.0.1"
-        webserver.vm.network "private_network", ip: "192.168.2.8"
+    aws.keypair_name = "chineseroom"
+    override.ssh.private_key_path = "~/.ssh/chineseroom.pem"
 
-        webserver.vm.synced_folder "source/webserver", "/src", owner: "vagrant", group: "vagrant", mount_options: ["dmode=775,fmode=777"]
+    aws.instance_type = "t2.micro"
 
-        webserver.vm.provision "shell", path: "node.sh", privileged:false 
-        webserver.vm.provision "shell", path: "webserver.sh", privileged: false
-    end
+    ##aws.security_groups = ["sg-0622fcb89e5a8b911"]
 
+    # For Vagrant to deploy to EC2 for Amazon Educate accounts, it
+    # seems that a specific availability_zone needs to be selected
+    # (will be of the form "us-east-1a"). The subnet_id for that
+    # availability_zone needs to be included, too (will be of the form
+    # "subnet-...").
+    aws.availability_zone = "us-east-1a"
+    aws.subnet_id = "subnet-95fa19d8"
 
+    aws.ami = "ami-04763b3055de4860b"
+
+    override.ssh.username = "ubuntu"
+  end
+
+  # Enable provisioning with a shell script. Additional provisioners such as
+  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
+  # documentation for more information about their specific syntax and use.
+  # config.vm.provision "shell", inline: <<-SHELL
+  #   apt-get update
+  #   apt-get install -y apache2
+  # SHELL
 end
