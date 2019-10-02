@@ -2,7 +2,11 @@
 Web application simulating Searle's Chinese Room Argument through VM environments.
 
 # Description
-This program is created using React, node.js, and MySQL in three seperate vms using vagrant.
+This program is created using React, node.js, and MySQL in three seperate vms using vagrant. Aws intergration can be achieved using varagrant plugins & dummybox:
+```
+vagrant plugin install vagrant-aws
+vagrant box add dummy https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box
+```
 
 # Usage
 ## Initial Build
