@@ -1,15 +1,6 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
-
 Vagrant.configure("2") do |config|
   config.vm.box = "dummy"
-  config.env.enable
   config.vm.provider :aws do |aws, override|
-    aws.access_key_id = ENV['AWS_ACCESS_KEY_ID']
-    aws.secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
-    aws.session_token = ENV['AWS_SESSION_TOKEN']
-
     aws.region = "us-east-1"
 
     override.nfs.functional = false
@@ -20,15 +11,10 @@ Vagrant.configure("2") do |config|
 
     aws.instance_type = "t2.micro"
 
-    ##aws.security_groups = ["sg-0622fcb89e5a8b911"]
+    aws.security_groups = ["sg-0622fcb89e5a8b911"]
 
-    # For Vagrant to deploy to EC2 for Amazon Educate accounts, it
-    # seems that a specific availability_zone needs to be selected
-    # (will be of the form "us-east-1a"). The subnet_id for that
-    # availability_zone needs to be included, too (will be of the form
-    # "subnet-...").
-    aws.availability_zone = "us-east-1a"
-    aws.subnet_id = "subnet-95fa19d8"
+    aws.availability_zone = "us-east-1b"
+    aws.subnet_id = "subnet-15d48849"
 
     aws.ami = "ami-04763b3055de4860b"
 
