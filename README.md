@@ -67,7 +67,7 @@ npm run build
 
 You can then deploy this build folder onto S3
 
-Follow this guide on how-to can be found [here](https://medium.com/serverlessguru/deploy-reactjs-app-with-s3-static-hosting-f640cb49d7e6)
+Follow this guide on how-to deploy [here](https://medium.com/serverlessguru/deploy-reactjs-app-with-s3-static-hosting-f640cb49d7e6)
 
 You should now be able to access the S3 bucket website, if working the characters on the left should change.
 
