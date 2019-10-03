@@ -13,7 +13,7 @@ function App() {
   const [restart, setRestart] = useState(false);
 
   const initPage = () => {
-    fetch("http://192.168.2.7:3003/")
+    fetch("http://ec2-3-85-145-186.compute-1.amazonaws.com:3003/")
       .then(res => {
         return res.json();
       })
@@ -36,7 +36,7 @@ function App() {
 
   useEffect(() => {
     if (submission.length === chars.length && chars.length !== 0) {
-      fetch("http://192.168.2.7:3003/", {
+      fetch("http://ec2-3-85-145-186.compute-1.amazonaws.com:3003/", {
         method: "POST",
         body: JSON.stringify({ DATA: submission }),
         headers: { "Content-Type": "application/json" }

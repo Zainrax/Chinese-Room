@@ -18,9 +18,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", async (req, res) => {
   async function main() {
     const connection = await mysql.createConnection({
-      host: "192.168.2.14",
-      user: "handler",
-      password: "insecure_db_pw",
+      host: "chinese-room-db.cjm0xpvbhlyf.us-east-1.rds.amazonaws.com",
+      user: "admin",
+      password: "easyas123",
       database: "chineseroom"
     });
 
